@@ -1,2 +1,2 @@
 # mibex-testing-repo
-Testing Repo
+Repo used for testing and development purposes
