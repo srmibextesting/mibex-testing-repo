@@ -1,0 +1,47 @@
+digraph G {
+rankdir="LR";
+  
+  subgraph cluster_3{
+      subgraph cluster_2 {
+        style=filled;
+        color=lightgrey;
+        node [style=filled,color=white];
+        VS -> "top-K"->"sequential \n embeding"
+        label = "CWSE";
+        labeljust="l";
+     }
+      subgraph cluster_1 {
+        style=filled;
+        color=lightgrey;
+        node [style=filled,color=white];
+        encoding -> b
+        b[label="clustering"]
+        label = "core words don't exist";
+        labeljust="l";
+    }
+      subgraph cluster_0 {
+        style=filled;
+        color=lightgrey;
+        node [style=filled,color=white];
+          a
+        a [label="clustering"]
+        label = "core words exist";
+        labeljust="l";
+    }
+    label = "pairs to intents clustering";
+    labeljust="l";
+  }
+  
+  start-> preprocessing
+  preprocessing -> VS
+  "sequential \n embeding"-> a
+  "sequential \n embeding" -> encoding
+  a->merge
+  b->merge
+  merge->MBLST
+  MBLST->end
+  
+  start[style = invis]
+  end[style=invis]
+
+}
