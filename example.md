@@ -1,8 +1,12 @@
-[Relative Link]: defender_rocket.png
+[Relative Link] defender_rocket.png
 
-[Absolute Link]: https://bitbucket.org/srtestaudit/jupyter-viewer-for-confluence-cloud/src/master/defender_rocket.png
+[Absolute Link] https://bitbucket.org/srtestaudit/jupyter-viewer-for-confluence-cloud/src/master/defender_rocket.png
 
-[Other Relative Link]: src/globe_poor.png
+[Other Relative Link] src/globe_poor.png
+
+[Other Relative Link done differently]
+
+[Other Relative Link done differently]: src/globe_poor.png
 
 To create a new task, use `+task+` followed by the task description.
 Bitbucket markdown (https://confluence.atlassian.com/bitbucketserver/markdown-syntax-guide-776639995.html) is supported.
