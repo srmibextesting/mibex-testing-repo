@@ -4,6 +4,8 @@
 
 [Other Relative Link](src/globe_poor.png)
 
+[File Relative Link](src/example.md)
+
 [Other Relative Link done differently]
 
 [Other Relative Link done differently]:(src/globe_poor.png)
