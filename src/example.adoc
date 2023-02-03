@@ -1,0 +1,11 @@
+= This is an ASCIIDoc example
+
+This is some documentation
+
+[source,java]
+----
+class Example{}
+----
+
+== Summary
+The summary is this.
