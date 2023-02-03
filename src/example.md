@@ -1,16 +1,3 @@
-[Relative Link]
-
-[Relative Link]: defender_rocket.png
-
-[Absolute Link]
-
-[Absolute Link]: https://bitbucket.org/srtestaudit/jupyter-viewer-for-confluence-cloud/src/master/defender_rocket.png
-
-[Other Relative Link]
-
-[Other Relative Link]: src/globe_poor.png
-
-
 To create a new task, use `+task+` followed by the task description.
 Bitbucket markdown (https://confluence.atlassian.com/bitbucketserver/markdown-syntax-guide-776639995.html) is supported.
 To create a reminder (a non-blocking comment), use `+comment+` followed by the comment text
