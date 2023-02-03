@@ -2,6 +2,8 @@
 
 This is some documentation
 
+link:src/defender_rocket.png[Relative Link]
+
 [source,java]
 ----
 class Example{}
