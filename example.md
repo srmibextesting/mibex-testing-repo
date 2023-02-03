@@ -8,6 +8,8 @@
 
 [Other Relative Link done differently]:(src/globe_poor.png)
 
+![Image Link](defender_rocket.png)
+
 To create a new task, use `+task+` followed by the task description.
 Bitbucket markdown (https://confluence.atlassian.com/bitbucketserver/markdown-syntax-guide-776639995.html) is supported.
 To create a reminder (a non-blocking comment), use `+comment+` followed by the comment text
