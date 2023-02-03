@@ -1,12 +1,6 @@
-[Relative Link]
-
 [Relative Link]: defender_rocket.png
 
-[Absolute Link]
-
 [Absolute Link]: https://bitbucket.org/srtestaudit/jupyter-viewer-for-confluence-cloud/src/master/defender_rocket.png
-
-[Other Relative Link]
 
 [Other Relative Link]: src/globe_poor.png
 
