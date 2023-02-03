@@ -2,7 +2,7 @@
 
 This is some documentation
 
-link:src/defender_rocket.png[Relative Link]
+link:src/globe_poor.png[Relative Link]
 
 [source,java]
 ----
