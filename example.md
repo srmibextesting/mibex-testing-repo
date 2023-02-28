@@ -6,10 +6,6 @@
 
 [File Relative Link](src/example.md)
 
-[Other Relative Link done differently]
-
-[Other Relative Link done differently]:(src/globe_poor.png)
-
 ![Image Link](defender_rocket.png)
 
 To create a new task, use `+task+` followed by the task description.
