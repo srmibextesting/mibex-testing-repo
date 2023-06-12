@@ -1,0 +1,13 @@
+= Including Way to Much
+
+== Include Level 1
+include::level-1-1.adoc[]
+include::level-1-2.adoc[]
+include::level-1-3.adoc[]
+include::level-1-4.adoc[]
+include::level-1-5.adoc[]
+
+Some more text
+
+== Reminder
+include::level-1-1.adoc[]

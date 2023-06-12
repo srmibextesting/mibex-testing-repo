@@ -1,0 +1,3 @@
+== No more levels, but a footer
+
+include::footer.adoc[]
