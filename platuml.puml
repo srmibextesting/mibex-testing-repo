@@ -1,0 +1,11 @@
+@startuml
+actor       User       as user
+
+user -> "Git for Confluence": install()
+activate "Git for Confluence"
+deactivate "Git for Confluence"
+user <- "Git for Confluence"
+activate user
+user -> user : invokeHappiness()
+
+@enduml
