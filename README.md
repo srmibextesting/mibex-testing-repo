@@ -5,3 +5,9 @@ It is a long established fact that a reader will be distracted by the readable c
 | Date | Description | Change reference |
 | ---------- | ---------------- | ------------------------ |
 | 29-Sep-22 | Initial Version    | Portfolio 0860                  |
+
+Dimensions | Megapixels
+---|---
+1,920 x 1,080 | 2.1MP
+3,264 x 2,448 | 8MP
+4,288 x 3,216 | 14MP
