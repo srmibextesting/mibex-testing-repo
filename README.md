@@ -6,7 +6,7 @@ It is a long established fact that a reader will be distracted by the readable c
 
 <details><summary>Change History</summary> 
 
-> [A history of significant changes or additions to the product. The change reference would typically be a portfolio reference number, or a Service Now ticket number, and the Github tag associated with the change.]: # 
+> A history of significant changes or additions to the product. The change reference would typically be a portfolio reference number, or a Service Now ticket number, and the Github tag associated with the change. 
 
 | Date | Description | Change reference |
 | ---------- | ---------------- | ------------------------ |
