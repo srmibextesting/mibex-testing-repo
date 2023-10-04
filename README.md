@@ -20,3 +20,26 @@ Dimensions | Megapixels
 1,920 x 1,080 | 2.1MP
 3,264 x 2,448 | 8MP
 4,288 x 3,216 | 14MP
+
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>John</td>
+            <td>Doe</td>
+            <td>johndoe@example.com</td>
+        </tr>
+        <tr>
+            <td>Jane</td>
+            <td>Smith</td>
+            <td>janesmith@example.com</td>
+        </tr>
+    </tbody>
+</table>
