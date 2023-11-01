@@ -1,7 +1,7 @@
 Testing
 
 
-link:&#32;javascript:alert('XSS!')[CLICK ME]
+<script>javascript:alert('XSS!')[CLICK ME]</script>
 
 ```mermaid
 
