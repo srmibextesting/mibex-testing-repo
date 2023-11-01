@@ -1,5 +1,7 @@
 Testing
 
+```mermaid
+
 sequenceDiagram
 
 Note over Client,Backend: [1] Client <-> Backend
@@ -63,3 +65,4 @@ loop
     FemsServer ->> InfluxDB: [data]
     FemsServer ->>- Odoo: [some data]
 end
+```
