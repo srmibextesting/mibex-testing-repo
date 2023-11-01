@@ -1,1 +1,1 @@
- link:&#32;javascript:alert('XSS!')[CLICK ME]
+link:&#32;javascript:alert('XSS!')[CLICK ME]
