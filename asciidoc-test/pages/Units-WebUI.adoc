@@ -1,4 +1,3 @@
-include::../reusables/attributes.adoc[]
 :imagesdir: ../media/images/earthworks
 = Units - Web UI {brand}
 _Reviewed No Changes_
