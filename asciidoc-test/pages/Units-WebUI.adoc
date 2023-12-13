@@ -4,7 +4,7 @@ include::../reusables/attributes.adoc[]
 = Units - Web UI {brand}
 _Reviewed No Changes_
 18 Sep 2023 | up-to-date with v2.13.1 #15 | PC / EC520 / TD5xx / Prism 
-:toc: macro
+:toc:[]
 
 == Introduction
 This screen allows a user to select preferred units for displaying values.
