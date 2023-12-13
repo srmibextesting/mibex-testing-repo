@@ -1,5 +1,3 @@
-= My Document Title
-
 :imagesdir: ../media/images/earthworks
 
 = Units - Web UI {brand}
