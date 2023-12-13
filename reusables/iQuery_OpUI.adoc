@@ -1,0 +1,26 @@
+:imagesdir: ../media/images/logos-icons
+
+Generic operator interface i-Query::
+* tapping the image:information.png[] button in a screen opens/closes in-context user assistance aimed at experienced operators, exemplified by https://ctctjv.atlassian.net/wiki/spaces/UX/pages/40400941/Micko+-+Natural+Team+Leader+Dozer+Operator+Ind.+5+Tech.+2[Miko] - written in the 'voice' of a friendly, knowledgeable peer
+* the i-Query is intended to provide the following assistance:
+** a short description of the purpose of the feature
+
+** information on any non-obvious ways the feature affects controls on other parts of the interface or functionality
+
+** how to use the feature, if required (it may be self evident) 
+
+** an i-Query may include a *See More* button that opens an expanded i-Query
+** some iQueries also include a link to the relevant https://ctctjv.atlassian.net/wiki/spaces/REFS/pages/48557924/Help+Guides+EWCG+RELEASED[Help Guide] documentation
+* *iQuery QR* codes
+** A QR Code is displayed for any iQuery that has a see more button (an extended iQuery)
+
+For the content of all iQueries, see the CX Dashboard of iQueries: https://ctctjv.atlassian.net/wiki/spaces/UX/pages/40401879/iQuery+Landing+Page[iQuery Landing Page]
+
+.Click here to expand a list of pages showing iQuery QR codes
+[%collapsible]
+====
+* VIEWING_LICENSES
+* ONSCREEN_LIGHTBARS
+* EXTERNAL_LIGHTBARS
+* TRANSFERRING_FILES
+====
