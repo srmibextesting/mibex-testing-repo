@@ -1,5 +1,6 @@
 include::../reusables/attributes.adoc[]
 :imagesdir: ../media/images/earthworks
+[float]
 = Units - Web UI {brand}
 _Reviewed No Changes_
 18 Sep 2023 | up-to-date with v2.13.1 #15 | PC / EC520 / TD5xx / Prism 
