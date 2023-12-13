@@ -1,0 +1,3 @@
+:reusablesdir: ../reusables
+:brand: EWCG
+:imag: images
