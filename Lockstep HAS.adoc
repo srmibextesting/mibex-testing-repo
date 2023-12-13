@@ -1,14 +1,3 @@
 = This is an ASCIIDoc example
 
-This is some documentation
 
-[source,java]
-----
-class Example{}
-----
-
-== Summary
-The summary is this.
-
-Click image:defender_rocket.png[title="Rocket"] when you need to take off.
-Click image:drawio_Diagram_svg.svg[title="Diagram"]
