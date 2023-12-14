@@ -1,5 +1,5 @@
 include::../reusables/attributes.adoc[]
-:imagesdir: ../media/{imag}/earthworks
+:imagesdir: ../media/images/earthworks
 
 = Units - Web UI {brand}
 _Reviewed No Changes_
