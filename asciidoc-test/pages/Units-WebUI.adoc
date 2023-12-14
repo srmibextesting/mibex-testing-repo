@@ -11,7 +11,7 @@ This screen allows a user to select preferred units for displaying values.
 
 NOTE: The selection of {brand} units is specific to the Web Interface. It does not set or change the operator interface units settings. The Op UI units are set within the Op UI via the system settings *Units* screen
 
-image:web-ew-units.png[My Image, 500,160]
+image::web-ew-units.png[My Image, 500,160]
 
 .An example table
 [cols="1,2a"]
