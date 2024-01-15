@@ -3,6 +3,8 @@
 Roses are red, +
 Violets are blue.
 
+NOTE: Admonition paragraphs call attention to special words of advice.
+
 This is some documentation
 
 link:src/globe_poor.png[Relative Link]
