@@ -1,5 +1,8 @@
 = This is an ASCIIDoc title & example
 
+Roses are red, +
+Violets are blue.
+
 This is some documentation
 
 link:src/globe_poor.png[Relative Link]
