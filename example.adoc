@@ -9,6 +9,11 @@ I can't believe it, we *won*!
 
 (C) Copyright
 
+* Milk
+* Eggs
+* Bread
+* Bananas
+
 This is some documentation
 
 link:src/globe_poor.png[Relative Link]
