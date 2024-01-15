@@ -26,7 +26,7 @@ Keyboard:: Used to enter text or control items on the screen.
 Mouse:: Used to point to and select items on your computer screen.
 Monitor:: Displays information in visual form using text and graphics.
 
-http://asciidoc.org[AsciiDoc] is a lightweight markup language.
+http://asciidoc.org[AsciiDoc, window="_blank"] is a lightweight markup language.
 
 This is some documentation
 
