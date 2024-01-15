@@ -7,6 +7,8 @@ NOTE: Admonition paragraphs call attention to special words of advice.
 
 I can't believe it, we *won*!
 
+(C) Copyright
+
 This is some documentation
 
 link:src/globe_poor.png[Relative Link]
