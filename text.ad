@@ -1,5 +1,7 @@
 = This is an ASCIIDoc title & example
 
+##livereload
+
 This is some documentation
 
 link:src/globe_poor.png[Relative Link]
