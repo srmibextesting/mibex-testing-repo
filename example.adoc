@@ -34,7 +34,8 @@ link:text.ad/#livereload[LiveReload]
 
 The section <<content-is-king>> covers paragraphs in AsciiDoc.
 
-*****
+
+
 
 This is some documentation
 
