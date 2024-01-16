@@ -28,9 +28,9 @@ Monitor:: Displays information in visual form using text and graphics.
 
 http://asciidoc.org[AsciiDoc, window="_blank"] is a lightweight markup language.
 
-link:editing-asciidoc-with-live-preview[Editing with Live Preview]
+link:text[Editing with Live Preview]
 
-link:editing-asciidoc-with-live-preview/#livereload[LiveReload]
+link:text/#livereload[LiveReload]
 
 This is some documentation
 
