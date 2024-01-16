@@ -1,4 +1,5 @@
 = This is an ASCIIDoc title & example
+:fedpkg: https://apps.fedoraproject.org/packages/asciidoc
 
 Roses are red, +
 Violets are blue.
@@ -38,7 +39,7 @@ Press the image:defender_rocket.png[Save, title="Save"] button.
 
 Information about the AsciiDoc package in Fedora is found at {fedpkg}.
 
-:fedpkg: https://apps.fedoraproject.org/packages/asciidoc
+
 
 
 == Other Examples
