@@ -41,11 +41,6 @@ Press the image:defender_rocket.png[Save, title="Save"] button.
 
 Information about the AsciiDoc package in Fedora is found at {fedpkg}.
 
-.TODO list
-- Learn the AsciiDoc syntax
-- Install AsciiDoc
-- Write my document in AsciiDoc
-
 
 == Other Examples
 
