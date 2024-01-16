@@ -22,10 +22,23 @@ I can't believe it, we *won*!
 . Electrons
 . Neutrons
 
+Lists tend to fuse together
+.Don't do this:
 * Apples
 * Oranges
 * Bananas
+
+* Walnuts
+* Almonds
+* Cashews
+
+.Do this instead:
+* Apples
+* Oranges
+* Bananas
+
 //^
+
 * Walnuts
 * Almonds
 * Cashews
