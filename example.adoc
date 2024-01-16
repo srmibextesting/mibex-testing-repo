@@ -32,6 +32,10 @@ link:text.ad[Editing with Live Preview]
 
 link:text.ad/#livereload[LiveReload]
 
+The section <<content-is-king>> covers paragraphs in AsciiDoc.
+
+*****
+
 This is some documentation
 
 link:src/globe_poor.png[Relative Link]
@@ -70,6 +74,8 @@ Alice <-- Bob: Another authentication Response
 ----
 
 [plantuml]
+
+###content-is-king
 ....
 include::plantuml.puml[]
 ....
