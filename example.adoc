@@ -74,8 +74,8 @@ Alice <-- Bob: Another authentication Response
 ----
 
 [plantuml]
-
-###content-is-king
 ....
 include::plantuml.puml[]
 ....
+
+###content-is-king
