@@ -78,4 +78,4 @@ Alice <-- Bob: Another authentication Response
 include::plantuml.puml[]
 ....
 
-###content-is-king
+== content-is-king
