@@ -60,6 +60,8 @@ The section <<content-is-king>> covers paragraphs in AsciiDoc.
 
 Press the image:defender_rocket.png[Save, title="Save"] button.
 
+video::media/images/videoExample.mov[width=200,options="nocontrols,autoplay"]
+
 Information about the AsciiDoc package in Fedora is found at {fedpkg}.
 
 
