@@ -1,5 +1,6 @@
 = This is an ASCIIDoc title & example
 :fedpkg: https://apps.fedoraproject.org/packages/asciidoc
+:toc2:
 
 Roses are red, +
 Violets are blue.
