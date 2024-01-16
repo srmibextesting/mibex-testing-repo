@@ -34,7 +34,7 @@ link:text.ad/#livereload[LiveReload]
 
 The section <<content-is-king>> covers paragraphs in AsciiDoc.
 
-
+Press the image:defender_rocket.png[Save, title="Save"] button.
 
 
 This is some documentation
