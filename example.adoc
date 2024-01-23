@@ -69,6 +69,12 @@ This is an example of a _listing block_.
 The content inside is rendered as <pre> text.
 ----
 
+Gettysburg Address
+[[gettysburg]]
+[quote, Abraham Lincoln, Soldiers' National Cemetery Dedication]
+____
+Four score and seven years ago our fathers brought forth
+
 == OTHER EXAMPLES
 
 This is some documentation
