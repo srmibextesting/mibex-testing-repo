@@ -70,10 +70,14 @@ The content inside is rendered as <pre> text.
 ----
 
 [source,python]
-````
 def hello_world():
     print("Hello, world!")
-````
+
+[source,python]
+----
+def hello_world():
+    print("Hello, world!")
+----
 
 Gettysburg Address
 [[gettysburg]]
