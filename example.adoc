@@ -86,5 +86,11 @@ ____
 Four score and seven years ago our fathers brought forth
 
 
+[sidebar]
+.Related information
+--
+This is aside text.
+It is used to present information related to the main content.
+--
 
 
