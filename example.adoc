@@ -64,6 +64,28 @@ video::media/images/videoExample.mov[width=200,options="nocontrols,autoplay"]
 
 Information about the AsciiDoc package in Fedora is found at {fedpkg}.
 
+[sidebar]
+.Title of the Sidebar
+--
+This is a sidebar block. It's a great place to add information that is related to but distinct from the main content.
+
+You can include:
+
+- Additional details
+- Explanatory text
+- Warnings or important notes
+
+Sidebars are typically styled differently from the main text to stand out.
+
+[source,python]
+----
+# Example Python code snippet
+print("Sidebar example in AsciiDoc")
+----
+
+End of sidebar content.
+--
+
 ----
 This is an example of a _listing block_.
 The content inside is rendered as <pre> text.
@@ -94,19 +116,6 @@ ____
 Four score and seven years ago our fathers brought forth
 
 
-[sidebar]
-.Related information
 
---
-This is aside text.
-
-It is used to present information related to the main content.
---
-
-++++
-<video poster="images/movie-reel.png">
- <source src="videos/writing-zen.webm" type="video/webm">
-</video>
-++++
 
 
