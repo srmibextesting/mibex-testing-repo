@@ -85,48 +85,11 @@ Gettysburg Address
 ____
 Four score and seven years ago our fathers brought forth
 
-== OTHER EXAMPLES
 
-This is some documentation
+[sidebar]
+.Related information
+--
+This is aside text.
+It is used to present information related to the main content.
+--
 
-link:src/globe_poor.png[Relative Link]
-
-[source,java]
-----
-class Example{}
-----
-
-== Summary
-The summary is this.
-
-Click image:defender_rocket.png[title="Rocket"] when you need to take off.
-Click image:drawio_Diagram_svg.svg[title="Diagram"]
-
-[plantuml]
-....
-@startuml
-Alice -> Bob: Authentication Request
-Bob --> Alice: Authentication Response
-
-Alice -> Bob: Another authentication Request
-Alice <-- Bob: Another authentication Response
-@enduml
-....
-
-[plantuml]
-----
-@startuml
-Alice -> Bob: Authentication Request
-Bob --> Alice: Authentication Response
-
-Alice -> Bob: Another authentication Request
-Alice <-- Bob: Another authentication Response
-@enduml
-----
-
-[plantuml]
-....
-include::plantuml.puml[]
-....
-
-== content-is-king
