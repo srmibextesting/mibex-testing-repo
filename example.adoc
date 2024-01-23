@@ -77,6 +77,15 @@ You can include:
 
 Sidebars are typically styled differently from the main text to stand out.
 
+[source,python]
+----
+# Example Python code snippet
+print("Sidebar example in AsciiDoc")
+----
+
+End of sidebar content.
+--
+
 [cols="2,3,5", options="header"]
 |===
 |Name |Group |Description
@@ -91,14 +100,6 @@ performance and portability.
 ...
 |===
 
-[source,python]
-----
-# Example Python code snippet
-print("Sidebar example in AsciiDoc")
-----
-
-End of sidebar content.
---
 
 ----
 This is an example of a _listing block_.
