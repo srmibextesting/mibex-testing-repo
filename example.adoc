@@ -132,7 +132,11 @@ Gettysburg Address
 ____
 Four score and seven years ago our fathers brought forth
 
-
+++++
+<video poster="images/movie-reel.png">
+ <source src="videos/writing-zen.webm" type="video/webm">
+</video>
+++++
 
 
 
