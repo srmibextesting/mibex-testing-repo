@@ -96,9 +96,17 @@ Four score and seven years ago our fathers brought forth
 
 [sidebar]
 .Related information
+
 --
 This is aside text.
+
 It is used to present information related to the main content.
 --
+
+++++
+<video poster="images/movie-reel.png">
+ <source src="videos/writing-zen.webm" type="video/webm">
+</video>
+++++
 
 
