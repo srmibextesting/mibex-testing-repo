@@ -64,8 +64,12 @@ video::media/images/videoExample.mov[width=200,options="nocontrols,autoplay"]
 
 Information about the AsciiDoc package in Fedora is found at {fedpkg}.
 
+----
+This is an example of a _listing block_.
+The content inside is rendered as <pre> text.
+----
 
-== Other Examples
+== OTHER EXAMPLES
 
 This is some documentation
 
