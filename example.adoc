@@ -115,7 +115,19 @@ Gettysburg Address
 ____
 Four score and seven years ago our fathers brought forth
 
-
+[cols="2,3,5", options="header"]
+|===
+|Name |Group |Description
+|Firefox
+|Web Browser
+|Mozilla Firefox is an open-source web browser.
+It's designed for standards compliance,
+performance and portability.
+|Ruby
+|Programming Language
+|A programmer's best friend.
+...
+|===
 
 
 
