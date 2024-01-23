@@ -69,6 +69,12 @@ This is an example of a _listing block_.
 The content inside is rendered as <pre> text.
 ----
 
+[source,python]
+````
+def hello_world():
+    print("Hello, world!")
+````
+
 Gettysburg Address
 [[gettysburg]]
 [quote, Abraham Lincoln, Soldiers' National Cemetery Dedication]
