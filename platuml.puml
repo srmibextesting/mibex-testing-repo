@@ -1,17 +1,5 @@
 @startuml
-actor       User       as user
 
-user -> "Git for Confluence": install()
-activate "Git for Confluence"
-deactivate "Git for Confluence"
-user <- "Git for Confluence"
-activate user
-user -> user : invokeHappiness()
-
-@enduml
-
-
-@startuml
 participant Participant as Foo
 actor Actor as Foo1
 boundary Boundary as Foo2
@@ -27,4 +15,5 @@ Foo -> Foo4 : To entity
 Foo -> Foo5 : To database
 Foo -> Foo6 : To collections
 Foo -> Foo7: To queue
+
 @enduml
