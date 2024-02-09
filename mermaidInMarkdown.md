@@ -1,8 +1,8 @@
 Example Mermaid:
 
 ```mermaid
-graph TD;
-    A-->B;!!!!
+gra TD;
+    A-->B;
     A-->C;
     B-->D;
     C-->D;
