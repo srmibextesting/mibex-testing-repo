@@ -17,3 +17,5 @@ Foo -> Foo6 : To collections
 Foo -> Foo7: To queue
 
 @enduml
+
+@startuml (First usecase) (Another usecase) as (UC2) usecase UC3 usecase (Last\nusecase) as UC4 @enduml
