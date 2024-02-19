@@ -1,0 +1,20 @@
+@startuml
+
+!theme plain
+
+entity "Confluence User" as ConfluenceUser
+entity "Bitbucket" as Bitbucket
+entity "OAuth Authentication" as OAuth
+entity "Shared Authentication\n(Token)" as SharedAuth
+
+ConfluenceUser -down-> OAuth : "Individual\nAuthentication"
+OAuth -down-> Bitbucket : "Accesses Private\nProjects"
+
+ConfluenceUser -right-> SharedAuth : "Uses Shared\nAuthentication"
+SharedAuth -right-> Bitbucket : "Accesses Content\nvia Shared Token"
+
+note right of Bitbucket : Each Confluence user needs\na Bitbucket account for\nindividual OAuth authentication
+
+note left of Bitbucket : Shared authentication allows\naccess without individual\nBitbucket accounts
+
+@enduml
