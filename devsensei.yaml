@@ -1,0 +1,27 @@
+includes:
+  - repository: rep_1
+    file: other.yaml
+workflows:
+  - name: Add Code Owners
+    conditions:
+      - or:
+        - destination~=master
+        - destination~=release
+        - and:
+          - source~=feature/*
+          - destination~=feature/*  
+    actions:
+      - add-codeowners:
+          assignment-routing:
+            random: 2
+          rules: |
+            * hans@localhost.ch        
+  - name: Second Workflow
+    conditions:
+      - destination~=bugfix
+    actions:
+      - add-codeowners:
+          assignment-routing:
+            random: 2
+          rules: |
+            * hans@localhost.ch
