@@ -1,0 +1,10 @@
+@@@PlanningLeads    shihyuan@localhost.ch
+@@@ControlLeads     wuning@localhost.ch
+
+@@@TypeScriptDevs   hans@localhost.ch user@example.com
+
+* hans@localhost.ch user@example.com @User
+
+((Check(@@PlanningLeads >= 1) | Check(@@ControlLeads >= 1)) & Check(@@TypeScriptDevs >= 1))
+
+src/   @@PlanningLeads @@ControlLeads @@TypeScriptDevs
