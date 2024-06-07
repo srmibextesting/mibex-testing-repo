@@ -30,6 +30,10 @@ pull requests of your team. A workflow includes:
 
 ## Example
 
+```javascript
+console.log("testing")
+```
+
 Here's an example `devsensei.yaml` that assigns Code Owners for a pull request introducing a new feature where the 
 pull request is opened from a branch including the prefix `feature/` with the destination branch being 
 `main` or `release`:
