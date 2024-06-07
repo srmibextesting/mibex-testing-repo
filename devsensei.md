@@ -104,7 +104,7 @@ The format of the Code Owners rules is the same, so you can copy that to the rul
 
 **CODEOWNERS**
 
-```
+```text
 CODEOWNERS.destination_branch_pattern main
 CODEOWNERS.destination_branch_pattern release/*
 CODEOWNERS.toplevel.subdirectory_overrides enable
