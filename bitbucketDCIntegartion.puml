@@ -9,7 +9,7 @@
 
 title Connect to Bitbucket Data Center from Confluence Cloud
 
-skinparam class {
+skinparam rectangle {
   BackgroundColor<<Requirement>> Yellow
   BorderColor<<Requirement>> Black
   BackgroundColor<<BDCConfig>> LightBlue
