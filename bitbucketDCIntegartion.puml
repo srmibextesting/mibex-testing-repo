@@ -39,9 +39,9 @@ package "Confluence Cloud Configuration" {
   RECTANGLE "Optional: Use Static IP option" as CC4 <<CCConfig>>
 }
 
-Req1 --> BDC1 : bold("Needed for public accessibility")
-Req2 --> BDC1 : bold("Ensures secure communication")
-Req3 --> BDC1 : bold("Allows necessary traffic")
+Req1 --> BDC1 : bold("* Needed for public accessibility")
+Req2 --> BDC1 : bold("* Ensures secure communication")
+Req3 --> BDC1 : bold("* Allows necessary traffic")
 Req4 --> CC4 : bold("Allows you to white list the IPs in the firewall.")
 
 BDC1 --> BDC2 : "User action"
