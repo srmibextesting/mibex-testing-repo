@@ -7,7 +7,7 @@ package "REQUIREMENTS" {
   RECTANGLE "Public DNS entry and IP" as Req1
   RECTANGLE "HTTPS with valid certificate" as Req2
   RECTANGLE "Firewall allows public internet traffic" as Req3
-  RECTANGLE "The firewall has to allow traffic from the public internet. Or you can choose to use a static IP, so you can white list the IPs in the firewall as Req4
+  RECTANGLE "The firewall has to allow traffic from the public internet. Or you can choose to use a static IP, so you can white list the IPs in the firewall" as Req4
   RECTANGLE "Optional: Use Static IPs" as Req5
 }
 
