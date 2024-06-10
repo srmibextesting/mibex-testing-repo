@@ -1,0 +1,38 @@
+@startuml
+!define RECTANGLE class
+
+package "Requirements" {
+  RECTANGLE "Public DNS entry and IP" as Req1
+  RECTANGLE "HTTPS with valid certificate" as Req2
+  RECTANGLE "Firewall allows public internet traffic" as Req3
+  RECTANGLE "Optional: Use Static IPs" as Req4
+}
+
+package "Bitbucket Data Center Configuration" {
+  RECTANGLE "Log into Bitbucket" as BDC1
+  RECTANGLE "Navigate to Manage Account" as BDC2
+  RECTANGLE "Create HTTP access token" as BDC3
+  RECTANGLE "Copy the token" as BDC4
+}
+
+package "Confluence Cloud Configuration" {
+  RECTANGLE "Navigate to Confluence Configuration" as CC1
+  RECTANGLE "Add Bitbucket DC instance" as CC2
+  RECTANGLE "Enter Bitbucket URL and token" as CC3
+  RECTANGLE "Optional: Use Static IP option" as CC4
+}
+
+Req1 --> BDC1
+Req2 --> BDC1
+Req3 --> BDC1
+Req4 --> CC4
+
+BDC1 --> BDC2
+BDC2 --> BDC3
+BDC3 --> BDC4
+
+BDC4 --> CC1
+CC1 --> CC2
+CC2 --> CC3
+CC3 --> CC4
+@enduml
