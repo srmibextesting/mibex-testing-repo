@@ -16,10 +16,6 @@ skinparam class {
   BorderColor<<BDCConfig>> Black
   BackgroundColor<<CCConfig>> LightGreen
   BorderColor<<CCConfig>> Black
-  StereotypeFontColor<<Requirement>> Yellow
-  StereotypeFontColor<<BDCConfig>> LightBlue
-  StereotypeFontColor<<CCConfig>> LightGreen
-  StereotypeFontSize 0
 }
 
 hide stereotypes
