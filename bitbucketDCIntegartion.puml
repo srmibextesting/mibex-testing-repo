@@ -4,7 +4,6 @@
 !function bold($text)
 !$result = "<b>"+ $text +"</b>"
 !log Calling bold function with $text. The result is $result
-!return $result
 !endfunction
 
 title Connect to Bitbucket Data Center from Confluence Cloud
@@ -16,6 +15,10 @@ skinparam class {
   BorderColor<<BDCConfig>> Black
   BackgroundColor<<CCConfig>> LightGreen
   BorderColor<<CCConfig>> Black
+}
+skinparam class {
+  StereotypeCBackgroundColor none
+  StereotypeFontColor none
 }
 
 package "REQUIREMENTS" {
@@ -39,9 +42,9 @@ package "Confluence Cloud Configuration" {
   RECTANGLE "Optional: Use Static IP option" as CC4 <<CCConfig>>
 }
 
-Req1 --> BDC1 : bold("* Needed for public accessibility")
-Req2 --> BDC1 : bold("* Ensures secure communication")
-Req3 --> BDC1 : bold("* Allows necessary traffic")
+Req1 --> BDC1 : bold("Needed for public accessibility")
+Req2 --> BDC1 : bold("Ensures secure communication")
+Req3 --> BDC1 : bold("Allows necessary traffic")
 Req4 --> CC4 : bold("Allows you to white list the IPs in the firewall.")
 
 BDC1 --> BDC2 : "User action"
@@ -53,3 +56,4 @@ CC1 --> CC2 : "Configuration step"
 CC2 --> CC3 : "Configuration step"
 CC3 --> CC4 : "Optional configuration"
 @enduml
+
