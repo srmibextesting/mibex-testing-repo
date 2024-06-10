@@ -17,6 +17,8 @@ skinparam class {
   BackgroundColor<<CCConfig>> LightGreen
   BorderColor<<CCConfig>> Black
   StereotypeFontColor<<Requirement>> Yellow
+  StereotypeFontColor<<BDCConfig>> LightBlue
+  StereotypeFontColor<<CCConfig>> LightGreen
 }
 
 package "REQUIREMENTS" {
