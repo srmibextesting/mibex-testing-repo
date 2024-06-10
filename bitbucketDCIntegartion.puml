@@ -9,25 +9,34 @@
 
 title Connect to Bitbucket Data Center from Confluence Cloud
 
+skinparam class {
+  BackgroundColor<<Requirement>> Yellow
+  BorderColor<<Requirement>> Black
+  BackgroundColor<<BDCConfig>> LightBlue
+  BorderColor<<BDCConfig>> Black
+  BackgroundColor<<CCConfig>> LightGreen
+  BorderColor<<CCConfig>> Black
+}
+
 package "REQUIREMENTS" {
-  RECTANGLE "Public DNS entry and IP" as Req1
-  RECTANGLE "HTTPS with valid certificate" as Req2
-  RECTANGLE "Firewall allows public internet traffic" as Req3
-  RECTANGLE "Optional: Use Static IPs" as Req4
+  RECTANGLE "Public DNS entry and IP" as Req1 <<Requirement>>
+  RECTANGLE "HTTPS with valid certificate" as Req2 <<Requirement>>
+  RECTANGLE "Firewall allows public internet traffic" as Req3 <<Requirement>>
+  RECTANGLE "Optional: Use Static IPs" as Req4 <<Requirement>>
 }
 
 package "Bitbucket Data Center Configuration" {
-  RECTANGLE "Log into Bitbucket" as BDC1
-  RECTANGLE "Navigate to Manage Account" as BDC2
-  RECTANGLE "Create HTTP access token" as BDC3
-  RECTANGLE "Copy the token" as BDC4
+  RECTANGLE "Log into Bitbucket" as BDC1 <<BDCConfig>>
+  RECTANGLE "Navigate to Manage Account" as BDC2 <<BDCConfig>>
+  RECTANGLE "Create HTTP access token" as BDC3 <<BDCConfig>>
+  RECTANGLE "Copy the token" as BDC4 <<BDCConfig>>
 }
 
 package "Confluence Cloud Configuration" {
-  RECTANGLE "Navigate to Confluence Configuration" as CC1
-  RECTANGLE "Add Bitbucket DC instance" as CC2
-  RECTANGLE "Enter Bitbucket URL and token" as CC3
-  RECTANGLE "Optional: Use Static IP option" as CC4
+  RECTANGLE "Navigate to Confluence Configuration" as CC1 <<CCConfig>>
+  RECTANGLE "Add Bitbucket DC instance" as CC2 <<CCConfig>>
+  RECTANGLE "Enter Bitbucket URL and token" as CC3 <<CCConfig>>
+  RECTANGLE "Optional: Use Static IP option" as CC4 <<CCConfig>>
 }
 
 Req1 --> BDC1 : bold("Needed for public accessibility")
