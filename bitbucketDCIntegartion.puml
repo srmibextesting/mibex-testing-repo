@@ -4,6 +4,7 @@
 !function bold($text)
 !$result = "<b>"+ $text +"</b>"
 !log Calling bold function with $text. The result is $result
+!return $result
 !endfunction
 
 title Connect to Bitbucket Data Center from Confluence Cloud
