@@ -19,6 +19,7 @@ skinparam class {
   StereotypeFontColor<<Requirement>> Yellow
   StereotypeFontColor<<BDCConfig>> LightBlue
   StereotypeFontColor<<CCConfig>> LightGreen
+  StereotypeFontSize 0
 }
 
 package "REQUIREMENTS" {
