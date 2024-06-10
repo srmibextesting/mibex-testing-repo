@@ -1,5 +1,5 @@
 @startuml
-!define RECTANGLE class
+!define RECTANGLE rectangle
 
 !function bold($text)
 !$result = "<b>"+ $text +"</b>"
