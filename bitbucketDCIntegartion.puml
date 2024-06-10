@@ -22,6 +22,8 @@ skinparam class {
   StereotypeFontSize 0
 }
 
+hide stereotypes
+
 package "REQUIREMENTS" {
   RECTANGLE "Public DNS entry and IP" as Req1 <<Requirement>>
   RECTANGLE "HTTPS with valid certificate" as Req2 <<Requirement>>
