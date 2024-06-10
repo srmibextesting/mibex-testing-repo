@@ -1,6 +1,8 @@
 @startuml
 !define RECTANGLE class
 
+title Bitbucket Data Center to Confluence Cloud Integration
+
 package "Requirements" {
   RECTANGLE "Public DNS entry and IP" as Req1
   RECTANGLE "HTTPS with valid certificate" as Req2
@@ -22,17 +24,17 @@ package "Confluence Cloud Configuration" {
   RECTANGLE "Optional: Use Static IP option" as CC4
 }
 
-Req1 --> BDC1
-Req2 --> BDC1
-Req3 --> BDC1
-Req4 --> CC4
+Req1 --> BDC1 : "Needed for public accessibility"
+Req2 --> BDC1 : "Ensures secure communication"
+Req3 --> BDC1 : "Allows necessary traffic"
+Req4 --> CC4 : "Static IPs simplify firewall rules"
 
-BDC1 --> BDC2
-BDC2 --> BDC3
-BDC3 --> BDC4
+BDC1 --> BDC2 : "User action"
+BDC2 --> BDC3 : "User action"
+BDC3 --> BDC4 : "User action"
 
-BDC4 --> CC1
-CC1 --> CC2
-CC2 --> CC3
-CC3 --> CC4
+BDC4 --> CC1 : "Provide token to Confluence"
+CC1 --> CC2 : "Configuration step"
+CC2 --> CC3 : "Configuration step"
+CC3 --> CC4 : "Optional configuration"
 @enduml
