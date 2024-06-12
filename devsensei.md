@@ -30,7 +30,7 @@ pull requests of your team. A workflow includes:
 
 ## Example
 
-```
+```js
 console.log("testing")
 ```
 
