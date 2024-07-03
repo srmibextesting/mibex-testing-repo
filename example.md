@@ -52,14 +52,13 @@ Use diff file pattern to only apply checklists for certain file types
 You can filter by branches for appropriate task
 ```
 --target master --source feature/* +task+ User Documentation updated?
---target bugfix/*                  +task+ Is there a automated test reproducing this issue.
-
+--target bugfix/*                  +task+ Is there a automated test reproducing this issue
+             
+--target release/* --source-except bugfix/* +task+ Double check with the Release Manager if this change is required for the release.
+--target release/* --source release/*       +task+ Double check that the pull request is from older to a newer release
+```
 
 @startuml
 Alice -> Bob: Authentication Request
 Bob --> Alice: Authentication Response
 @enduml
-             
---target release/* --source-except bugfix/* +task+ Double check with the Release Manager if this change is required for the release.
---target release/* --source release/*       +task+ Double check that the pull request is from older to a newer release
-```
