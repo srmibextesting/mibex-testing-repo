@@ -138,5 +138,9 @@ Four score and seven years ago our fathers brought forth
 </video>
 ++++
 
+@startuml
+Alice -> Bob: Authentication Request
+Bob --> Alice: Authentication Response
+@enduml
 
 
