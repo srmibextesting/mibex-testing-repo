@@ -3,6 +3,14 @@
 :toc2:
 :numbered:
 
+[plantuml, target="sequence-diagram", format="png"]
+----
+@startuml
+Alice -> Bob: Authentication Request
+Bob --> Alice: Authentication Response
+@enduml
+----
+
 Roses are red, +
 Violets are blue.
 
@@ -138,9 +146,6 @@ Four score and seven years ago our fathers brought forth
 </video>
 ++++
 
-@startuml
-Alice -> Bob: Authentication Request
-Bob --> Alice: Authentication Response
-@enduml
+
 
 
