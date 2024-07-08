@@ -12,6 +12,9 @@ MARKDOWN IMAGE
 IMAGE HTML TAG with width
 <img src="defender_rocket.png" alt="Alt text" width="800">
 
+IMAGE HTML TAG with absolute
+<img src="https://github.com/srmibextesting/mibex-testing-repo/blob/main/defender_rocket.png" alt="alt text" width="800">
+
 MARKDOWN IMAGE with width
 ![Image Link with Size](defender_rocket.png){width=800 height=800}
 
