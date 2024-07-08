@@ -6,9 +6,14 @@
 
 [File Relative Link](src/example.md)
 
+MARKDOWN IMAGE
 ![Image Link](defender_rocket.png)
 
+IMAGE HTML TAG with width
 <img src="defender_rocket.png" alt="rocket" style="width:800px;"/>
+
+MARKDOWN IMAGE with width
+![Image Link with Size](defender_rocket.png){width=800 height=800}
 
 To create a new task, use `+task+` followed by the task description.
 Bitbucket markdown (https://confluence.atlassian.com/bitbucketserver/markdown-syntax-guide-776639995.html) is supported.
