@@ -10,8 +10,8 @@ MARKDOWN IMAGE
 ![Image Link](defender_rocket.png)
 
 IMAGE HTML TAG 
-<img src="defender_rocket.png" alt="Alt text" width="50">
-<img src="defender_rocket.png"/>
+<img src="defender_rocket.png" alt="Alt text" width="50"/>
+<img src="defender_rocket.png" alt="Alt text/>
 
 IMAGE HTML TAG with absolute
 <img src="https://img.lemde.fr/2024/06/18/0/0/2100/1050/1000/500/75/0/cabe93a_1718707996737-circonscriptions.jpg" width="400"/>
