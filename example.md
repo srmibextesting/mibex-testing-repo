@@ -6,7 +6,7 @@
 
 [File Relative Link](src/example.md)
 
-[Nested Directory with Spaces Relative Link](directyWith Spaces/testJavascript.js)
+[Nested Directory with Spaces Relative Link](src/directyWith Spaces/testJavascript.js)
 
 MARKDOWN IMAGE
 ![Image Link](defender_rocket.png)
