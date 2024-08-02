@@ -8,6 +8,8 @@
 
 [Nested Directory with Spaces](src/directyWith Spaces/testJavascript.js)
 
+IMAGE within nested directory
+![IMAGE within nested directory](src/folder2/folder3/deep/deeplyNested/defender_rocket.png)
 
 MARKDOWN IMAGE
 ![Image Link](defender_rocket.png)
