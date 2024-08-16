@@ -23,27 +23,6 @@ subgraph deptools[Deployment Tools]
     ...
 end
 
-%% interactions
-%% TODO: wyjaśnić jak odbywa się komunikacja ama <-> jira i póki co amy nie zmieniamy. nie robimy endpointa dla amy w change registry na tę chwilę
-jira -->|Get AmaReport<br>DoD & test data| ama 
-jira -->|GetAssets<br>to fill the form| cmdb
-cmdb -->|GetRalphData<br>to fill jira assets| ralph
-jira -->|Deploy /Release<br>change| DeplRunner
-DeplRunner -->|GetCredentials<br>for deployment| vault
-DeplRunner -->|Deploy /<br>Release| deptools
-deptools -->|Publish<br>Results| DeplRunner
-DeplRunner -->|Publish<br>DeploymentReport| jira
-%% publish report for both new chage process or external (custom change processes)
-jira -->|Publish<br>ChangeReport| ChangeRegistry
-powerbi -->|Get  data for<br>reports| ChangeRegistry
-%%ama -->|Collect data| ci[CI Tools]
-%%ama -->|Collect data| QG[Quality Gate]
-%% dsiaptcher w dep tools czy screlease?
-
-%% styling
- classDef api stroke:#0f0
-
-
 # README
 
 It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
