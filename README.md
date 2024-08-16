@@ -26,17 +26,17 @@ end
 
 %% interactions
 %% TODO: wyjaśnić jak odbywa się komunikacja ama <-> jira i póki co amy nie zmieniamy. nie robimy endpointa dla amy w change registry na tę chwilę
-jira -->|Get AmaReport<br>DoD & test data| ama 
-jira -->|GetAssets<br>to fill the form| cmdb
-cmdb -->|GetRalphData<br>to fill jira assets| ralph
-jira -->|Deploy /Release<br>change| DeplRunner
-DeplRunner -->|GetCredentials<br>for deployment| vault
-DeplRunner -->|Deploy /<br>Release| deptools
-deptools -->|Publish<br>Results| DeplRunner
-DeplRunner -->|Publish<br>DeploymentReport| jira
+jira -->|Get AmaReport<br/>DoD & test data| ama 
+jira -->|GetAssets<br/>to fill the form| cmdb
+cmdb -->|GetRalphData<br/>to fill jira assets| ralph
+jira -->|Deploy /Release<br/>change| DeplRunner
+DeplRunner -->|GetCredentials<br/>for deployment| vault
+DeplRunner -->|Deploy /<br/>Release| deptools
+deptools -->|Publish<br/>Results| DeplRunner
+DeplRunner -->|Publish<br/>DeploymentReport| jira
 %% publish report for both new chage process or external (custom change processes)
-jira -->|Publish<br>ChangeReport| ChangeRegistry
-powerbi -->|Get  data for<br>reports| ChangeRegistry
+jira -->|Publish<br/>ChangeReport| ChangeRegistry
+powerbi -->|Get  data for<br/>reports| ChangeRegistry
 %%ama -->|Collect data| ci[CI Tools]
 %%ama -->|Collect data| QG[Quality Gate]
 %% dsiaptcher w dep tools czy screlease?
