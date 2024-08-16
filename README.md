@@ -43,6 +43,50 @@ powerbi -->|Get  data for<br>reports| ChangeRegistry
  classDef api stroke:#0f0
 ```
 
+```mermaid
+flowchart LR
+
+%% participants
+%% na tę chwilę AMA nie daje nam tego czego chcemy więc nie uwzględniamy jej w MVP
+subgraph xsrelease[XsRelease]
+    jira[JIRA Change]
+    cmdb[Jira CMDB]
+    DeplRunner[Deployment\nRunner]:::api
+    ChangeRegistry[Change\nRegistry]:::api
+end
+ama[AMA]
+ralph[RALPH]
+vault[HasihCorp\nVault]
+powerbi[Power BI]
+subgraph deptools[Deployment Tools]
+    direction RL
+    AzurePipelines
+    TeamCity
+    Jenkins
+    ...
+end
+
+%% interactions
+%% TODO: wyjaśnić jak odbywa się komunikacja ama <-> jira i póki co amy nie zmieniamy. nie robimy endpointa dla amy w change registry na tę chwilę
+jira -->|Get AmaReport\nDoD & test data| ama 
+jira -->|GetAssets\nto fill the form| cmdb
+cmdb -->|GetRalphData\nto fill jira assets| ralph
+jira -->|Deploy /Release\nchange| DeplRunner
+DeplRunner -->|GetCredentials\nfor deployment| vault
+DeplRunner -->|Deploy /\nRelease| deptools
+deptools -->|Publish\nResults| DeplRunner
+DeplRunner -->|Publish\nDeploymentReport| jira
+%% publish report for both new chage process or external (custom change processes)
+jira -->|Publish\nChangeReport| ChangeRegistry
+powerbi -->|Get data for\nreports| ChangeRegistry
+%%ama -->|Collect data| ci[CI Tools]
+%%ama -->|Collect data| QG[Quality Gate]
+%% dsiaptcher w dep tools czy screlease?
+
+%% styling
+ classDef api stroke:#0f0
+```
+
 # README
 
 It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
