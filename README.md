@@ -9,12 +9,12 @@ flowchart LR
 subgraph xsrelease[XsRelease]
     jira[JIRA Change]
     cmdb[Jira CMDB]
-    DeplRunner[Deployment<br>Runner]:::api
-    ChangeRegistry[Change<br>Registry]:::api
+    DeplRunner[Deployment<br/>Runner]:::api
+    ChangeRegistry[Change<br/>Registry]:::api
 end
 ama[AMA]
 ralph[RALPH]
-vault[HasihCorp<br>Vault]
+vault[HasihCorp<br/>Vault]
 powerbi[Power BI]
 subgraph deptools[Deployment Tools]
     direction RL
