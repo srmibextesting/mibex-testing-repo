@@ -1,7 +1,4 @@
 
-
-
-```mermaid
 ```mermaid
 flowchart LR
 
