@@ -40,7 +40,7 @@ powerbi -->|Get data for reports| ChangeRegistry
 
 %% styling
 classDef api stroke:#0f0
-
+```
 
 
 # README
