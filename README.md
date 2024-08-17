@@ -2,20 +2,17 @@
 
 
 ```mermaid
-
 flowchart LR
 
-%% participants
-%% na tę chwilę AMA nie daje nam tego czego chcemy więc nie uwzględniamy jej w MVP
 subgraph xsrelease[XsRelease]
     jira[JIRA Change]
     cmdb[Jira CMDB]
-    DeplRunner[Deployment&lt;br&gt;Runner]:::api
-    ChangeRegistry[Change&lt;br&gt;Registry]:::api
+    DeplRunner[Deployment\nRunner]:::api
+    ChangeRegistry[Change\nRegistry]:::api
 end
 ama[AMA]
 ralph[RALPH]
-vault[HasihCorp&lt;br&gt;Vault]
+vault[HasihCorp\nVault]
 powerbi[Power BI]
 subgraph deptools[Deployment Tools]
     direction RL
@@ -25,28 +22,18 @@ subgraph deptools[Deployment Tools]
     ...
 end
 
-%% interactions
-%% TODO: wyjaśnić jak odbywa się komunikacja ama <-> jira i póki co amy nie zmieniamy. nie robimy endpointa dla amy w change registry na tę chwilę
-jira -->|Get AmaReport&lt;br&gt;DoD & test data| ama 
-jira -->|GetAssets&lt;br&gt;to fill the form| cmdb
-cmdb -->|GetRalphData&lt;br&gt;to fill jira assets| ralph
-jira -->|Deploy /Release&lt;br&gt;change| DeplRunner
-DeplRunner -->|GetCredentials&lt;br&gt;for deployment| vault
-DeplRunner -->|Deploy /&lt;br&gt;Release| deptools
-deptools -->|Publish&lt;br&gt;Results| DeplRunner
-DeplRunner -->|Publish&lt;br&gt;DeploymentReport| jira
-%% publish report for both new chage process or external (custom change processes)
-jira -->|Publish&lt;br&gt;ChangeReport| ChangeRegistry
-powerbi -->|Get data for&lt;br&gt;reports| ChangeRegistry
-%%ama -->|Collect data| ci[CI Tools]
-%%ama -->|Collect data| QG[Quality Gate]
-%% dsiaptcher w dep tools czy screlease?
+jira -->|Get AmaReport\nDoD & test data| ama 
+jira -->|GetAssets\nto fill the form| cmdb
+cmdb -->|GetRalphData\nto fill jira assets| ralph
+jira -->|Deploy /Release\nchange| DeplRunner
+DeplRunner -->|GetCredentials\nfor deployment| vault
+DeplRunner -->|Deploy /\nRelease| deptools
+deptools -->|Publish\nResults| DeplRunner
+DeplRunner -->|Publish\nDeploymentReport| jira
+jira -->|Publish\nChangeReport| ChangeRegistry
+powerbi -->|Get data for\nreports| ChangeRegistry
 
-%% styling
- classDef api stroke:#0f0
-
-
-
+classDef api stroke:#0f0
 ```
 
 # README
