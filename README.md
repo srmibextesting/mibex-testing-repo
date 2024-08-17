@@ -6,12 +6,12 @@ flowchart LR
 subgraph xsrelease[XsRelease]
     jira[JIRA Change]
     cmdb[Jira CMDB]
-    DeplRunner[Deployment Runner]:::api
-    ChangeRegistry[Change Registry]:::api
+    DeplRunner[Deployment<br/>Runner]:::api
+    ChangeRegistry[Change<br/>Registry]:::api
 end
 ama[AMA]
 ralph[RALPH]
-vault[HasihCorp Vault]
+vault[HasihCorp<br/>Vault]
 powerbi[Power BI]
 subgraph deptools[Deployment Tools]
     direction RL
@@ -23,23 +23,23 @@ end
 
 %% interactions
 %% TODO: wyjaśnić jak odbywa się komunikacja ama <-> jira i póki co amy nie zmieniamy. nie robimy endpointa dla amy w change registry na tę chwilę
-jira -->|Get AmaReport DoD & test data| ama 
-jira -->|GetAssets to fill the form| cmdb
-cmdb -->|GetRalphData to fill jira assets| ralph
-jira -->|Deploy /Release change| DeplRunner
-DeplRunner -->|GetCredentials for deployment| vault
-DeplRunner -->|Deploy / Release| deptools
-deptools -->|Publish Results| DeplRunner
-DeplRunner -->|Publish DeploymentReport| jira
+jira -->|Get AmaReport<br/>DoD & test data| ama 
+jira -->|GetAssets<br/>to fill the form| cmdb
+cmdb -->|GetRalphData<br/>to fill jira assets| ralph
+jira -->|Deploy /Release<br/>change| DeplRunner
+DeplRunner -->|GetCredentials<br/>for deployment| vault
+DeplRunner -->|Deploy /<br/>Release| deptools
+deptools -->|Publish<br/>Results| DeplRunner
+DeplRunner -->|Publish<br/>DeploymentReport| jira
 %% publish report for both new chage process or external (custom change processes)
-jira -->|Publish ChangeReport| ChangeRegistry
-powerbi -->|Get data for reports| ChangeRegistry
+jira -->|Publish<br/>ChangeReport| ChangeRegistry
+powerbi -->|Get  data for<br/>reports| ChangeRegistry
 %%ama -->|Collect data| ci[CI Tools]
 %%ama -->|Collect data| QG[Quality Gate]
 %% dsiaptcher w dep tools czy screlease?
 
 %% styling
-classDef api stroke:#0f0
+ classDef api stroke:#0f0
 ```
 
 
