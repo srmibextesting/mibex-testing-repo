@@ -11,8 +11,4 @@ graph TD;
 
 
 
-XSS: 
-```mermaid
-classDiagram
-x <|-- `<img src onerror=eval(atob("YWxlcnQoJ1hTUyBhdCAnK2xvY2F0aW9uKQ"))>`
-```
+
