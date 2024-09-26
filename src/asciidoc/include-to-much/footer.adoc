@@ -1,3 +1,3 @@
- == I am a footer
+== I am a footer
 
- This is some footer text, for this chapter
+This is some footer text, for this chapter
