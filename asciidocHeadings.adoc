@@ -1,0 +1,32 @@
+= Document Title
+Author Name
+:toc:
+:source-highlighter: coderay
+
+== Introduction
+
+AsciiDoc is a highly flexible document format that supports logical structuring and enhanced formatting options, like images and syntax highlighting.
+
+== Example Section
+
+This section demonstrates some of the powerful features of AsciiDoc.
+
+=== Subsection: Image and Code Example
+
+The document is sectioned logically with clear headers, making it easy to cross-reference in larger manuals.
+
+[Example of an embedded image:]
+image::path/to/your/image.png[Alt text goes here, width=400]
+
+[source,java]
+----
+public class Example {
+    public static void main(String[] args) {
+        System.out.println("Hello, AsciiDoc!");
+    }
+}
+----
+
+=== Cross-Referencing Example
+
+You can easily create cross-references to sections. For example, refer back to the <<Example Section, Example Section>>.
