@@ -15,9 +15,6 @@ This section demonstrates some of the powerful features of AsciiDoc.
 
 The document is sectioned logically with clear headers, making it easy to cross-reference in larger manuals.
 
-[Example of an embedded image:]
-image::path/to/your/image.png[Alt text goes here, width=400]
-
 [source,java]
 ----
 public class Example {
