@@ -1,0 +1,8 @@
+|===
+| Column 1         | Column 2
+| Code block       | [source,java]
+  ----
+  int a = 10;
+  int b = 20;
+  ----
+|===
