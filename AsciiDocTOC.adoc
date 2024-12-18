@@ -1,0 +1,816 @@
+= What is DevSensei?
+:toc:
+:toclevels: 3
+
+DevSensei is a pull request workflow automation solution integrated into the Code Owners App.
+
+It is for teams who want to:
+
+* reduce the overhead of working with pull requests.
+** e.g. auto merge minor changes after the automated checks passed
+* automate workflows in pull requests.
+** e.g. assign the right reviewers
+* follow and enforce team policies.
+** e.g. add tasks to the pull request based on what changes are made
+
+== Getting Started
+. Enable DevSensei for your repository:
+.. Navigate to the repository -> Repository Setting (⚙️ on the left) -> _DevSensei | Code Owners Settings_.
+Alternatively, the setting is also available at the project level.
+.. In the settings panel, enable the `DevSensei Workflows`
+. Add the sample `devsensei.yaml` file below to the default branch of your repository.
+
+.Workflow to add comment on pull requests ready to review (basic example)
+[source,yaml]
+----
+workflows:
+- name: Add Comment
+  conditions:
+    - not draft
+  actions:
+    - add-comment:
+      content: |
+        This pull request is ready to review.
+        Thanks.
+----
+
+[start=3]
+. Done! When you create a pull request, then the comment will be added.
+On draft pull requests the comment is added as soon as the pull request is marked as ready to review.
+
+.Some more examples
+[source,yaml]
+----
+workflows:
+- name: Bugfix Release Policy Reminder
+  conditions:
+    - destination~=release/* # When the pull request targets a release branch
+    - source~!=bugfix/*    # And isn't from a bugfix branch
+  actions:
+    # Add the reminder comment
+    - add-comment:
+        content: |
+          Reminder: Only bugfixes should be merged into a release branch.
+          If it is not an urgent bugfix, please change the
+          pull request destination to the development branch.
+- name: Release Tasks
+  conditions:
+    - source=main
+    - destination=latest-release
+  actions:
+  - add-comment:
+      content: Is the public documentation up to date?
+      task: true
+  - add-comment:
+      content: The release announcement is prepared?
+      task: true
+- name: Add reviewers
+  conditions:
+    - destination~!=sandbox/*
+  actions:
+    - add-codeowners:
+        rules: |
+          **/*.java    java-expert@our-company.com
+          **/*.js      javascript-expert@our-company.com
+----
+
+== Workflows
+
+Each workflow automates specific tasks for the pull requests of your team.
+
+A workflow includes:
+
+1. a unique name to identify the workflow
+2. a set of conditions to be met. Once these conditions are met the actions are executed
+3. a set of actions to be executed when the conditions are met for a pull request
+
+=== How does it work?
+
+Configure the workflows for your team
+
+1. on the _default_ branch
+2. in the `devsensei.yaml` file
+3. at the _top-level_ directory
+
+of your repository.
+
+The `devsensei.yaml` file consists of a set of **workflows**.
+
+
+=== Conditions
+Use conditions to decide for which pull requests to run your actions.
+Conditions give you full control to tailor a workflow to run the actions exactly when you need.
+
+A basic condition is a comparison on a pull request attributes like
+`title`, `source` and `destination` branch.
+Then compare the attributes with an operators like equality `=`, glob matching `~=`, negations `not`
+to the desired value.
+
+[source,yaml]
+----
+conditions:
+    - draft                   # check that pull request is a draft
+    - not draft               # negate a comparison: Check that the pull request is not a draft
+    - source=main             # Check that the source branch is the main branch
+    - destination~=releases/* # Check that the destination is a matching the glob release
+----
+
+All conditions in the `conditions` list must be fulfilled to run an action.
+Use `or` and `and` blocks if you need logical combinations of conditions.
+
+[source,yaml]
+----
+conditions:
+    - or:
+        - draft
+        - title~=DRAFT*
+    - and:
+        - source=develop
+        - destination=releases/*
+----
+
+=== Actions
+Actions do things for you, like adding comments, adding reviewers, etc.
+
+A workflow has one or more actions.
+
+=== When Do Actions Run
+Actions run when the conditions change from false to true.
+
+Then, actions do not run again as long as the condition stays true.
+
+When conditions go again back to false and then true, the actions run again.
+
+image::when-do-actions-run.png[Edge Trigger]
+This concept is called *Edge Triggering*, as actions are triggered on the  'edge' of the signal when
+the conditions do change.
+
+=== Run Actions More Often
+Sometimes you need to run the actions of a workflow more often,
+for example every time new commits are made to the pull request.
+
+For that, there is the `retrigger-on` section.
+If the value of one of the attributes in the `retrigger-on` section changes,
+it will "reset" the condition signal and if the conditions are currently met,
+a new edge trigger happens, and the workflow's actions will run again.
+
+image::retrigger-actions.png[Retriggering an Action]
+
+.Examples:
+[source,yaml]
+----
+workflows:
+  - name: Reminder that changes for releases need extra care
+    conditions:
+    - destination~=release/*
+    retrigger-on:
+    - source-head-sha # Retrigger if commits change
+    actions:
+    - add-comment:
+        content: |
+            Be careful. This changes are for a bugfix release.
+  - name: Send a reminder to the customer of a planned fix
+    conditions:
+    - destination~=customer/*
+    - source~=bugfix
+    retrigger-on:
+    - destination # Retrigger if the destination changes
+    actions:
+    - add-comment:
+        content: |
+          Inform the customer about the planned customer specific bugfix
+  - name: Add CodeOwner reviewers, and update if the are new commits
+    conditions:
+    - destination~=customer/*
+    - source~=bugfix
+    retrigger-on:
+    - source-head-sha # Retrigger if commits change
+    actions:
+      - add-codeowners:
+          rules: |
+            **/*.java    java-expert@our-company.com
+            **/*.js      javascript-expert@our-company.com
+----
+
+
+=== Syntax support in IDE for DevSensei configuration
+
+The app provides a YAML Schema for the `devsensei.yaml` file.
+
+Benefits:
+
+* Auto-completion of YAML keys
+* Basic validations, (e.g. ensure that a workflow has actions)
+* Documentation of YAML elements within the editor
+* Showing code examples from the Spec as help
+
+Download the YAML Schema from Bitbucket:
+
+https://YOUR_BITBUCKET/rest/codeowners/1.0/devsensei/schema
+
+Depending on your IDE, map that YAML Schema to files named `devsensei.yaml`.
+
+==== IntelliJ IDEA & JetBrains IDE's
+
+. Go to IntelliJ IDEA (or other Jetbrains IDE) settings
+. Search for `JSON Schema Mappings`
+. Add a new mapping:
++
+a. Name: `DevSensei Schema file`
++
+b. Schema URL: https://YOUR_BITBUCKET/rest/codeowners/1.0/devsensei/schema
++
+c. Schema version: `JSON Schema version 7`
++
+d. File: `devsensei.yaml`
+
+==== VS Code
+
+VS Code with the https://github.com/redhat-developer/vscode-yaml[RedHat YAML plugin] can either use an inline reference to the JSON Schema
+
+[,yaml]
+----
+# yaml-language-sever: $schema=https://YOUR_BITBUCKET/rest/codeowners/1.0/devsensei/schema
+
+workflows:
+  # ...
+----
+
+or have a global mapping within the VS Code settings.json:
+
+[,json]
+----
+{
+  "yaml.schemas": {
+    "https://YOUR_BITBUCKET/rest/codeowners/1.0/devsensei/schema": [
+      "devsensei.yaml"
+    ]
+  }
+}
+----
+
+== Migration: From Code Owners to DevSensei
+
+=== What advantages has DevSensei compared to Code Owners?
+
+* `devsensei.yaml` can share common rules across repositories with
+included `devsensei.yaml` files called "Includes" to reduce duplication and maintenance efforts.
+* Common configuration parts (e.g. reusing the list of reviewers) can be shared with
+YAML anchors.
+* DevSensei allows to build the automation you want with combining conditions and actions.
+* DevSensei currently only supports `add-codeowners` and `add-comment`. We will add more actions in the
+future to automate your pull request workflow. https://support.mibexsoftware.com[Let us know] what actions
+you are looking for.
+* `devsensei.yaml` is read from the *default branch* of your repository.
+This will reduce the maintenance efforts significantly when the automation for the repository needs changes.
+
+=== How can I migrate from Code Owners to DevSensei?
+
+To start using DevSensei from your existing `CODEOWNERS` file, you have two options:
+
+. a) *Automated* migration: migrate your `CODEOWNERS` file to `devsensei.yaml` with the built-in migration support
+(see button _Download generated devsensei.yaml_).
+. b) *Manual* migration: migrate your `CODEOWNERS` settings to their equivalents in `devsensei.yaml`.
+For the most part, copy everything except `CODEOWNERS` settings and custom groups from the `CODEOWNERS` file to
+the `rules` section of `add-codeowners` action in `devsensei.yaml`.
++
+a. For the https://docs.mibexsoftware.com/codeowners/codeowners-settings-only-data-center[settings], use the
+alternatives from the `add-codeowners` action, see the Actions paragraph below.
++
+b. For the custom Code Owner groups (`e.g. @@@my-group @peter @anna`), use the `custom-groups` section of `add-codeowners`.
+
+. push the `devsensei.yaml` file to the root directory in the default branch of your repository
+. enable DevSensei under `+repository settings -> DevSensei | Code Owners -> DevSensei Workflows -> Enabled+`
+. when the app sees a `devsensei.yaml` file, it will use that instead of `CODEOWNERS`.
+
+'''
+
+NOTE: DevSensei reads the `devsensei.yaml` configuration from the _default branch_ of your repository for every pull request.
+This is in contrast to Code Owners configuration in `CODEOWNERS` file, that is taken from the _destination_ branch
+of the pull request.
+
+'''
+
+Below you can see both a `CODEOWNERS` file and the equivalent `devsensei.yaml` file. This should help you to migrate
+from your Code Owners rules to the new YAML format.
+
+The format of the Code Owners rules is the same, so you can copy that to the rules section of the `add-codeowners` action.
+
+*CODEOWNERS*
+
+----
+CODEOWNERS.destination_branch_pattern main
+CODEOWNERS.destination_branch_pattern release/*
+CODEOWNERS.toplevel.subdirectory_overrides enable
+CODEOWNERS.toplevel.assignment_routing random 2
+CODEOWNERS.toplevel.create_pull_request_comment disable
+CODEOWNERS.toplevel.auto_unapprove_on_change enable
+CODEOWNERS.source_branch_exclusion_pattern hotfix/*
+
+@@@MyDevs                @PeterTheHacker  @PeterTheJavaExpert ann@scala.lang @@JSDevs
+
+*                        @PeterTheHacker
+*.java                   @PeterTheJavaExpert
+*.js                     @PaulTheJSGuru @@JSExperts
+"a/path with spaces/*"   docs@example.com
+!ci/playgrounds.yml
+src/components/**/*.js   @@MyDevs
+
+Check(@@MyDevs >= 2)
+----
+
+*devsensei.yaml*
+
+[,yaml]
+----
+shared:
+  - custom-groups:
+      MyDevs:
+        - @PeterTheHacker
+        - @PeterTheJavaExpert
+        - ann@scala.lang
+        - @@JSDevs
+
+workflows:
+  - name: Add Code Owners
+    conditions:
+      - or:
+        - destination=main
+        - destination~=release/*
+      - source~!=hotfix/*
+      - on-diff-change # If you want update Code Owners when the pull request code is updated
+    actions:
+      - add-codeowners:
+          auto-unapprove-on-change: true
+          assignment-routing:
+            random: 2
+          custom-groups:
+            MyDevs: *MyDevs
+          rules: |
+            *                       @PeterTheHacker
+            *.java                  @PeterTheJavaExpert
+            *.js                    @PaulTheJSGuru @@JSExperts
+            "a/path with spaces/*"  docs@example.com
+            !ci/playgrounds.yml
+            src/components/**/*.js  @@MyDevs
+            Check(@@MyDevs >= 2)
+----
+
+=== Code Owners Settings NOT supported in DevSensei add-codeowners action
+
+|===
+| Code Owners feature | Why not supported / Alternative?
+
+| `CODEOWNERS.toplevel.create_pull_request_comment`
+| May be added later
+
+| `CODEOWNERS.toplevel.subdirectory_override`
+| Manually include rule files of sub directories
+|===
+
+[NOTE]
+====
+To replicate the previous behavior of the sub-dir override feature with DevSensei workflows, you must:
+
+. prefix the file patterns with the subdir in the corresponding `add-codeowners` action
+. exclude the subdirs in the "root" `add-codeowners` actions with a negation rule
+
+Example: if you have `CODEOWNERS` with `subdirectory_override=true` and `module-a/CODEOWNERS`.
+
+. prefix file patterns in migrated `add-codeowners` of `module-a` like `module-a/PATTERN`
+. add `!module-a/` as last rule to migrated root `CODEOWNERS` action to ignore the sub directory of `module-a`
+in this action
+====
+
+== Reference: `devsensei.yaml`
+
+=== Workflows
+
+Each workflow is meant to automate specific tasks for the pull requests of your team.
+
+==== Properties
+
+|===
+|Attribute |Definition
+
+s|`name` (required) a| The name of the workflow. Must be unique in a repository.
+s|`conditions` (optional, but probably wanted) a|
+A set of conditions to be met for the actions of the workflow to be executed for a pull request
+s|`retrigger-on` (optional) a| A set of values. Causes additional trigger for actions when the value changes while the condition is currently met.
+
+[,yaml]
+----
+retrigger-on:
+  # on destination value change
+  - destination
+  # on source-head-sha value change
+  - source-head-sha
+----
+s|`actions` (required) a|
+A set of actions to be executed each time the conditions are met for a pull request, or when a value in the `retrigger-on` list changes while the conditions are met.
+s|`overrides` (optional) a|
+
+A workflow with the same name can be overridden in the main devsensei.yaml file. If so, the workflow object must have
+`overrides=true`. If not, then you will get a validation error for the duplicate names.
+
+`main.yaml`
+
+[,yaml]
+----
+includes:
+  - other.yaml
+workflows:
+  # overriding included workflow
+  - name: I am overridden
+    overrides: true
+----
+
+`other.yaml`
+
+[,yaml]
+----
+workflows:
+  # original definition of workflow
+  - name: I am overridden
+    conditions: #...
+    actions: #...
+----
+|===
+
+=== Conditions
+
+
+==== Syntax
+
+The `conditions` property of a workflow is configured with a list of conditions. There two kinds of conditions: Basic, which is a boolean expression that evaluates an attribute; and Aggregate, which can compose 1 or more conditions (of either kind) with a logical operator (e.g. `and`,  `or`).
+
+|===
+|Name|YAML Syntax | Example
+
+a|Basic a| `string` whose value matches the following patterns:
+----
+<attribute> <infix-op> <value>
+----
+or
+----
+[<prefix-op>] <attribute>
+----
+a|
+[,yaml]
+----
+"source~=hotfix/*"
+----
+[,yaml]
+----
+"destination!=main"
+----
+[,yaml]
+----
+"!draft"
+----
+
+a|Aggregate a| `object` mapping from an operator to a `list` of conditions a|
+[,yaml]
+----
+or:
+  - and:
+      - CONDITION_1
+      - CONDITION_2
+  - and:
+      - CONDITION_3
+      - CONDITION_4
+----
+|===
+
+==== Condition evaluation
+
+Each condition is a boolean expression, so composition with `and` and `or` obeys the usual rules for boolean algebra.
+
+If there are no `conditions` (i.e. there is no mapping, or an empty list), then the condition is always met by default, so any action in the workflow run at least once. This means that each additional condition further constrains the cases where actions should be applied.
+If there are more than one condition in a workflow's `conditions` property, then they must be all true simultaneously for the overall condition to be met (i.e. they are combined with `and` implicitly).
+
+Conditions are dynamic expressions, and can retrieve and compare metadata (known as attributes) associated with the current pull request. Conditions are evaluated when a pull request is created, whenever the pull request or its various metadata changes.
+
+[#condition-attributes]
+==== Condition attributes
+
+These are the various attributes available to use in `conditions` (and also in `retrigger-on`).
+Each attribute results in a typed value when evaluated.
+
+|===
+| Condition Attribute | Type | Meaning
+
+a| `title`
+a| `string`
+a| The pull request title
+
+a| `source`
+a| `string`
+a| Source branch of pull request
+
+a| `destination`
+a| `string`
+a| Destination branch of pull request
+
+a| `repository-name`
+a| `string`
+a| Destination repository of pull request
+
+a| `source-head-sha`
+a| `string`
+a| The SHA-1 hash of commit of the HEAD ref on the source branch
+
+a| `draft`
+a| `boolean`
+a| Is it a draft pull request
+|===
+
+==== Attribute types
+
+Currently there are two scalar types supported for attributes
+|===
+| Type name | Description
+
+a|`boolean`| A value that is one of either `true` or `false`.
+a|`string`| any UTF-8 text value.
+|===
+
+==== Basic condition operators
+
+Operators are functions that can either transform an attributes value or compare an attribute's value to a literal value.
+
+===== Syntax
+
+|===
+| Operator kind | syntax | example
+
+a| `infix` a| `<attribute>` `op` `<value>` a| `title=My PR`
+a| `prefix` a| `op` `<attribute>` a| `not draft`
+|===
+
+===== Examples
+
+|===
+| Condition Operator | Meaning | Type | Position
+
+a| `~=`
+a| https://confluence.atlassian.com/bitbucketserver080/branch-permission-patterns-1115142320.html[Glob] match
+a| `(string, string) -> boolean`
+a| `infix`
+
+a| `~!=`
+a| Glob negative match
+a| `(string, string) -> boolean`
+a| `infix`
+
+a| `=`
+a| Equals
+a| `(string, string) -> boolean`
+a| `infix`
+
+a| `!=`
+a| Not equals
+a| `(string, string) -> boolean`
+a| `infix`
+
+a| `!` or `not`
+a| Negate a boolean attribute (use of `!` must be in a quoted string)
+a| `(boolean) -> boolean`
+a| `prefix`
+|===
+
+==== Aggregate condition operators
+
+There are two logical operators that can compose a list of conditions
+
+|===
+| Condition Operator | Meaning
+
+a| `and`
+a| All conditions must be fulfilled
+
+a| `or`
+a| At least one of the conditions must be fulfilled
+|===
+
+=== Retrigger On
+
+The `retrigger-on` section is optional. If configured, it defines a set of expressions that are continuously evaluated, similar to `conditions`.
+
+*Example*
+
+[,yaml]
+----
+retrigger-on:
+  - destination
+  - source-head-sha
+----
+
+It provides more fine-grained control over when edge-triggering occurs. Normally, actions only run on the "edge" when the condition changes from "not-met" to "met". For example, if attribute values change, but the condition is still met, then normally actions will not run again.
+
+However, if `retrigger-on` is configured, then whenever one of its expression values changes while the condition is met, the signal for the condition will temporarily flip, enabling a new edge-trigger even though the condition is already met.
+
+You can consider the behavior similar to two wires: `condition` (A), and `retrigger-on` (B), combined with a logic gate (A & !B). Wire B is only activated in the instant where a change occurs, but otherwise deactivates, which creates more "edges" in the combined signal.
+
+.Concept of retrigger-on
+----
+condition (A):    ___^^^^^^^^^^^___^^^__
+
+retrigger-on (B): ______^___^___________
+
+A & !B:           ___^^^_^^^_^^^___^^^__
+
+EdgeTrigger:      ___^___^___^_____^____
+----
+
+Without the retrigger-on section the workflow actions would only run twice.
+The effect of retrigger-on makes it so that the workflow actions actually run 4 times instead.
+
+==== Retrigger Expressions
+
+There is currently only one kind of expression supported:
+
+|===
+|Kind | Syntax | Result
+
+a|`read` a| `<attribute>` a| the value of the attribute.
+|===
+
+[#actions-spec]
+=== Actions
+
+List of available actions that fuel your automation.
+
+mailto:support+devsensei@mibexsoftware.com[Let us know if you miss an action].
+
+==== add-codeowners
+
+Adds Code Owners as reviewers to a pull request.
+
+|===
+a|Attributes a|Definition
+
+a| `assignment-routing`
+a| `random`: n
+
+reduce the number of Code Owners that are automatically assigned to a pull request. *(opt-in)* Currently,
+the only available method of assignment is at random.
+
+[,yaml]
+----
+- add-codeowners:
+    assignment-routing:
+      random: 2
+----
+
+a|`rules`
+a|The https://docs.mibexsoftware.com/codeowners/owner-rules[Code Owners rules] and https://docs.mibexsoftware.com/codeowners/merge-checks[merge checks].
+For existing `CODEOWNERS` users, copy your owner rules and the merge checks to the `rules` section.
+Note: for sub-directory overrides, check "Not supported settings" section.
+
+[,yaml]
+----
+- add-codeowners:
+    rules: \|
+      *          @jordan jordan@example.com
+      /backend/  @@backendies
+      /frontend/ @@frontendies
+----
+
+a|`custom-groups`
+a|Define https://docs.mibexsoftware.com/codeowners/owner-rules#Ownerrules-CustomGroups[custom Code Owners groups].
+
+[,yaml]
+----
+- add-codeowners:
+    rules: \|
+      pipelines.yml           @@admins
+      backend/                @@backendies
+      src/components/**/*.js  @@frontendies
+    custom-groups:
+      admins:
+        - @bobby
+      backendies:
+        - @jordan
+        - john.doe@localhost.ch
+      frontendies:
+        - @charly
+        - @@admins
+----
+
+a|`auto-unapprove-on-change`
+a| Remove approval if owned code changes.
+
+[,yaml]
+----
+- add-codeowners:
+    auto-unapprove-on-change: true
+----
+
+|===
+
+
+==== add-comment
+
+Adds a single comment or task to a pull request
+
+|===
+a|Attributes a| Definition
+
+a| `content`
+a| (`string`) content of the comment
+[,yaml]
+----
+add-comment:
+  content: Cool fix!
+----
+
+a| `task`
+a| (`boolean`) whether create as a task (defaults to false)
+
+[,yaml]
+----
+add-comment:
+  content: \|
+    This PR is missing a Jira issue key in the title.
+    Please add it.
+  task: true
+----
+|===
+
+=== Includes
+
+With `includes`, common Devsensei workflows can be shared both across repositories as well within projects in a monorepo.
+
+To include a `devsensei.yaml` file from another repository, use this syntax:
+
+[,yaml]
+----
+includes:
+- repository: shared-configs
+  file: project-devsensei.yaml
+----
+
+Only repositories of the same Bitbucket project are supported:
+
+When a plain YAML file path is specified, the included file is read from the same repository:
+
+[,yaml]
+----
+includes:
+- common/devsensei.yaml
+----
+
+* The files are read from the latest commit of the default branch
+* YAML Anchors will be resolved per file.
+* Only one level of includes are support (no recursion supported)
+
+==== YAML Anchors
+
+Use YAML Anchors to define reusable content in the same YAML file.
+
+Example:
+
+[,yaml]
+----
+shared:
+- &myanchor
+  name: My Anchor
+  description: This is a reusable anchor
+
+workflows:
+  - *myanchor
+----
+
+* Anchors can be used for any content. For example, to define reusable custom user groups, or conditions.
+* Reference must only reference anchors in the same file. It is not possible to define an anchor in one file, and
+reference it from another file.
+* Anchor names cannot contain the `[`, `]`, `{`, `}`, and `,` characters.
+* Anchors can be defined anywhere in the file, although we encourage to use the `shared` section at the top of the file
+for clarity and easier maintenance.
+
+=== Configuration-Changes and Existing Pull Requests
+DevSensei reads the configuration always from the default branch.
+That means that all open pull requests will use the same configuration and changes in the configuration affect all pull requests.
+
+When you change the configuration, then when DevSensei runs the next time, the new configuration is applied.
+
+.The next time DevSensei runs:
+|===
+| Configuration change | Effect on Existing Pull Request
+
+a| New Workflow is Added
+a| The workflow's actions are applied if the conditions are met
+
+a| Workflow is Renamed
+a| Workflows are identified by name, therefore this acts as if a new workflow is introduced. See above
+
+a| `actions` are changed
+a| The next time actions are running, the new configuration for the action is used
+
+a| `condition` changes
+a| Then new conditions are checked the next time DevSensei runs
+
+a| `retrigger-on` changes
+a| The condition signal is reset when the `retrigger-on` function changes. The actions run again if the conditions are met
+|===
