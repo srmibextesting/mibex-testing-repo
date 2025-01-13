@@ -92,3 +92,6 @@ include::src/main/java/ch/mibex/confluence/include/Utils.java[]
 ----
 include::{sourcedir}/Utils.java[]
 ----
+== included files ==
+
+include::grandchild.adoc[]
