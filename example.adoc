@@ -68,7 +68,7 @@ The section <<content-is-king>> covers paragraphs in AsciiDoc.
 
 Click image:defender_rocket.png[title="Rocket"] when you need to take off.
 
-image::defender_rocket.png["Mesa Verde Sunset, by JAVH"]
+
 
 video::media/images/videoExample.mov[width=200,options="nocontrols,autoplay"]
 
