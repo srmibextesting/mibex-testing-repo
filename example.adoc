@@ -66,6 +66,8 @@ link:text.ad/#livereload[LiveReload]
 
 The section <<content-is-king>> covers paragraphs in AsciiDoc.
 
+image::defender_rocket.png[Save, title="Save"]
+
 Press the image:defender_rocket.png[Save, title="Save"] button.
 
 video::media/images/videoExample.mov[width=200,options="nocontrols,autoplay"]
