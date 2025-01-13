@@ -80,6 +80,13 @@ One more thing. Happy documenting!
 
 
 
+Images should also work inside code sentences, image:logo.png[app logo,50,50]  did it work? :)
+Images block syntax in text mode image::logo.png[app logo,50,50]  did it work? :)
+Images no size attributes image:logo.png[app logo]  did it work? :)
+Images explict attributes, image:logo.png[alt = app logo,width=300,height=300]  did it work? :)
+
+[tests-diagram]: src/main/resources/images/plugin-logo.png "Diagram of the tests"
+
 
 == Code ==
 
