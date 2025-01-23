@@ -8,6 +8,10 @@
 
 [Nested Directory with Spaces](src/directyWith Spaces/testJavascript.js)
 
+IMAGE without a paragraph 
+
+<img src="defender_rocket.png" alt="Alt text" width="50"/>
+
 IMAGE within nested directory
 ![IMAGE within nested directory](src/folder2/folder3/deep/deeplyNested/defender_rocket.png)
 
