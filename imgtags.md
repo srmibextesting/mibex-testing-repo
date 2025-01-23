@@ -1,6 +1,6 @@
 IMAGE TAG Without P
 
-<img src="defender_rocket.png" width="100" height="100" />
+<img src="Female_Avatar.png" width="100" height="100" />
 
 IMAGE HTML TAG 
 <img src="defender_rocket.png" width="100" height="100" />
