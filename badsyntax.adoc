@@ -1,0 +1,3 @@
+## Bad Syntax 
+
+Images block syntax in text mode image::logo.png[app logo,50,50]  did it work? 
