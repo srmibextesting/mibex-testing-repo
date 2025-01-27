@@ -1,4 +1,4 @@
-#MarkDown Flavors
+# MarkDown Flavors
 
 ## CommonMark (Standard Markdown)
 This is a paragraph with **bold text** and *italic text*.
