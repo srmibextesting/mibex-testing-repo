@@ -13,23 +13,6 @@ This is a paragraph with **bold text** and *italic text*.
 
 > This is a blockquote.
 
----
-
-## GitHub-Flavored Markdown (GFM)
-
-```markdown
-# Heading with a Task List
-- [ ] Unchecked item
-- [x] Checked item
-
-| Column 1 | Column 2 |
-|----------|----------|
-| Row 1    | Row 2    |
-
-~~Strikethrough text~~
-
-Here’s an inline code block: `print("Hello, World!")`
-
 ## Markdown Extra
 
 # Footnotes
