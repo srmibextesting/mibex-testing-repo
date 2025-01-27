@@ -79,19 +79,6 @@ a^2 + b^2 = c^2
 # Citations
 Here’s a citation[@doe2025].
 
-## RMarkdown
----
-title: "RMarkdown Example"
-author: "Data Scientist"
-output: html_document
----
-
-# Inline R Code
-The mean of 1 and 2 is `r mean(c(1, 2))`.
-
-# R Code Chunk
-```{r echo=TRUE}
-summary(cars)
 
 ## Markua
 # Part 1
@@ -152,4 +139,35 @@ date: "2025-01-27"
 output: pdf_document
 ---
 
+---
+
+## GitHub-Flavored Markdown (GFM)
+
+```markdown
+# Heading with a Task List
+- [ ] Unchecked item
+- [x] Checked item
+
+| Column 1 | Column 2 |
+|----------|----------|
+| Row 1    | Row 2    |
+
+~~Strikethrough text~~
+
+Here’s an inline code block: `print("Hello, World!")`
+
+
+## RMarkdown
+---
+title: "RMarkdown Example"
+author: "Data Scientist"
+output: html_document
+---
+
+# Inline R Code
+The mean of 1 and 2 is `r mean(c(1, 2))`.
+
+# R Code Chunk
+```{r echo=TRUE}
+summary(cars)
 
