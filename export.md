@@ -1,7 +1,7 @@
 # README #
 
 Drawio as PNG
-![test](Drawio_Diagram.png)
+![test](Female_Avatar.png)
 
 
 Image from the root folder:
