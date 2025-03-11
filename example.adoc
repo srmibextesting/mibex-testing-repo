@@ -11,6 +11,17 @@ Bob --> Alice: Authentication Response
 @enduml
 ----
 
+----
+def hello_world():
+    print("Hello, world from a code block without a language specified!")
+----
+
+[source,python]
+----
+def hello_world():
+    print("Hello, world from a code block with language specified!")
+----
+
 Roses are red, +
 Violets are blue.
 
