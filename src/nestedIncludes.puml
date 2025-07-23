@@ -1,0 +1,6 @@
+@startuml
+!include pumlWithIncludes.puml
+!include ./pumlWithIncludes.puml
+!include ../header.puml
+!include ../other-repo/somefile.puml
+@enduml
