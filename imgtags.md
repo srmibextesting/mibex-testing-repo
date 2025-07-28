@@ -15,3 +15,15 @@ IMAGE HTML TAG with absolute
 
 
 <a target="_blank" rel="nofollow" href="https://google.com">Test Link</a>
+
+In same directory
+![SameDirectory](./defender_rocket.png)
+
+✅ This uses `../` (go up one level):
+![Dot-Dot Relative](../src/globe_poor.png)
+
+✅ This uses a full repo-root path `/`:
+![Root Relative](/src/globe_poor.png)
+
+✅ This uses a web URL:
+![Web URL](https://bitbucket.org/srtestaudit/jupyter-viewer-for-confluence-cloud/raw/6869ce9f69f1bd3d851633522f4fd97ec51c30df/images/Arc42_3_1_FachlicherKontext.png)
