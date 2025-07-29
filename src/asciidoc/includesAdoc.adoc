@@ -84,8 +84,8 @@ image::logo.png[logo,50,50]
 
 Images should also work inside code sentences, image:logo.png[app logo,50,50]  did it work? :)
 Images no size attributes image:logo.png[app logo]  did it work? :)
-Images explict attributes, image:logo.png[alt = app logo,width=300,height=300]  did it work? :)
-Images explict attributes, image::logo.png[alt = app logo,width=300,height=300]  did it work? :)
+Images explict attributes, image:logo.png[alt="app logo", width=300, height=300]  did it work? :)
+Images explict attributes, image::logo.png[alt="app logo", width=300, height=300]  did it work? :)
 
 image::/defender_rocket.png[]
 
