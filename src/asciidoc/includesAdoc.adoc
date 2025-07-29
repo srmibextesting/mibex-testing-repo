@@ -87,7 +87,7 @@ Images no size attributes image:logo.png[app logo]  did it work? :)
 Images explict attributes, image:logo.png[alt = app logo,width=300,height=300]  did it work? :)
 Images explict attributes, image::logo.png[alt = app logo,width=300,height=300]  did it work? :)
 
-image::/defender-rocket.png[]
+image::/defender_rocket.png[]
 
 
 [tests-diagram]: src/main/resources/images/plugin-logo.png "Diagram of the tests"
