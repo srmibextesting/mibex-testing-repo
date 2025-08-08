@@ -1,8 +1,8 @@
 ## Including PlantUML in Markdown 😀
 
 ```plantuml
-!include plantUMLc4.puml
 @startuml
+!include plantUMLC4.puml
 Alice -> Bob: Hello Bob
 Bob -> Alice: Hi Alice
 @enduml
