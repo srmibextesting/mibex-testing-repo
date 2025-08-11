@@ -6,6 +6,7 @@
 [plantuml, target="sequence-diagram", format="png"]
 ----
 @startuml
+!include plantUMLC4.puml
 Alice -> Bob: Authentication Request
 Bob --> Alice: Authentication Response
 @enduml
