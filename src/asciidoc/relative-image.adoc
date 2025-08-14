@@ -10,7 +10,7 @@ This uses `../` (go up one level):
 image::../globe_poor.png[Dot-Dot Relative]
 
 This uses a full repo-root path `/`:  
-image::/asciidoc/globe_poor.png[Root Relative]
+image::/src/asciidoc/globe_poor.png[Root Relative]
 
 This uses a web URL:  
 image::https://bitbucket.org/srtestaudit/jupyter-viewer-for-confluence-cloud/raw/6869ce9f69f1bd3d851633522f4fd97ec51c30df/images/Arc42_3_1_FachlicherKontext.png[Web URL]
