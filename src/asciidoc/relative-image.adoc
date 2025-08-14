@@ -1,0 +1,18 @@
+= Relative Path Image Test
+
+In same directory with /  
+image::./logo.png[SameDirectory]
+
+In the same directory
+image::logo.png[SameDirectory]
+
+This uses `../` (go up one level):  
+image::../globe_poor.png[Dot-Dot Relative]
+
+This uses a full repo-root path `/`:  
+image::/images/globe_poor.png[Root Relative]
+
+This uses a web URL:  
+image::https://bitbucket.org/srtestaudit/jupyter-viewer-for-confluence-cloud/raw/6869ce9f69f1bd3d851633522f4fd97ec51c30df/images/Arc42_3_1_FachlicherKontext.png[Web URL]
+
+This is an inline icon image:./logo.png[SameDirectory] inside text.
