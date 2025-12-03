@@ -8,6 +8,9 @@
 
 [Nested Directory with Spaces](src/directyWith Spaces/testJavascript.js)
 
+LARGE IMAGE 
+![Large Image(/media/images/large-image-file.jpg)
+
 IMAGE without a paragraph 
 
 <img src="defender_rocket.png" alt="Alt text" width="50"/>
