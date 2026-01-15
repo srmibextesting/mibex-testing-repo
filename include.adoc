@@ -1,3 +1,4 @@
 [plantuml, format="png"]
 ----
-include::src/nestedIncludes.puml[]
+include::src/example.puml[]
+----
